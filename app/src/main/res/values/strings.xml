@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">LangrisserStat</string>
+    <string name="my">MY</string>
+    <string name="record">전적</string>
+    <string name="hero_stat">영웅 통계</string>
 </resources>

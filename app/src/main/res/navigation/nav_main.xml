@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/userFragment">
+
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.winterry.langrisserstat.UserFragment"
+        android:label="UserFragment"
+        tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/action_userFragment_to_recordFragment"
+            app:destination="@id/recordFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_heroStatFragment"
+            app:destination="@id/heroStatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordFragment"
+        android:name="com.winterry.langrisserstat.RecordFragment"
+        android:label="RecordFragment"
+        tools:layout="@layout/fragment_record">
+        <action
+            android:id="@+id/action_recordFragment_to_heroStatFragment"
+            app:destination="@id/heroStatFragment" />
+        <action
+            android:id="@+id/action_recordFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/heroStatFragment"
+        android:name="com.winterry.langrisserstat.HeroStatFragment"
+        android:label="HeroStatFragment"
+        tools:layout="@layout/fragment_hero_stat">
+        <action
+            android:id="@+id/action_heroStatFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_heroStatFragment_to_recordFragment"
+            app:destination="@id/recordFragment" />
+    </fragment>
+</navigation>
