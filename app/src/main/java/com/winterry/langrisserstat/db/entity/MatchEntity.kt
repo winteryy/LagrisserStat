@@ -10,5 +10,6 @@ data class MatchEntity(
     @ColumnInfo(name = "date") val date: Int,
     @ColumnInfo(name = "is_first_hand") val isFirstHand: Boolean,
     @ColumnInfo(name = "is_win") val isWin: Boolean,
+    @ColumnInfo(name = "map") val map: Int,
     @ColumnInfo(name = "memo") val memo: String?,
 )

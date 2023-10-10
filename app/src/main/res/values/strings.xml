@@ -3,4 +3,10 @@
     <string name="my">MY</string>
     <string name="record">전적</string>
     <string name="hero_stat">영웅 통계</string>
+    <string name="win">승리</string>
+    <string name="lose">패배</string>
+    <string name="first_hand">선공</string>
+    <string name="second_hand">후공</string>
+    <string name="first_hand_short">(선)</string>
+    <string name="second_hand_short">(후)</string>
 </resources>
