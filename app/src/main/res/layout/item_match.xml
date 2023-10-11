@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:text="@string/win"
-        android:textSize="16sp"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="@id/backGroundView"
         app:layout_constraintTop_toTopOf="@id/backGroundView" />
 
@@ -30,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:textSize="14dp"
         android:text="20231011"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@id/backGroundView"
@@ -41,6 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:textSize="14dp"
         android:text="My Pick"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@id/dateTextView"
@@ -51,6 +53,7 @@
         android:id="@+id/turnHandTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="14dp"
         android:layout_marginEnd="7dp"
         android:text="@string/second_hand_short"
         app:layout_constraintBottom_toBottomOf="@id/myPickTextView"
@@ -62,6 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
+        android:textSize="14dp"
         android:text="분쟁의 평원"
         app:layout_constraintEnd_toEndOf="@id/backGroundView"
         app:layout_constraintStart_toStartOf="@id/backGroundView"
@@ -162,14 +166,15 @@
         android:id="@+id/deleteMatchButton"
         android:layout_width="75dp"
         android:layout_height="40dp"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="4dp"
         android:backgroundTint="#FF3333"
-        android:text="경기 삭제"
-        android:textSize="12sp"
+        android:text="게임 삭제"
+        android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/memoTextView"
         app:layout_constraintStart_toStartOf="@id/backGroundView"
         app:layout_constraintTop_toTopOf="@id/memoTextView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/memoTextView"
@@ -179,8 +184,8 @@
         android:background="@drawable/white_radius"
         android:gravity="center_vertical"
         android:paddingHorizontal="5dp"
-        android:text="가나가나가나가나가나가나가나가나가나가나"
-        android:textSize="14sp"
+        android:text="짧은 메모를 작성하는 공간(20자 정도)"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="@id/backGroundView"
         app:layout_constraintEnd_toEndOf="@id/backGroundView" />
 

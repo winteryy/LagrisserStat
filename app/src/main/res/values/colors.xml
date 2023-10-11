@@ -6,4 +6,6 @@
     <color name="content_bg_orange">#FBE9E7</color>
     <color name="win_bg">#BBDEFB</color>
     <color name="lose_bg">#FFCDD2</color>
+    <color name="btn_skyblue">#B3E5FC</color>
+    <color name="weak_pink">#F3B6AE</color>
 </resources>

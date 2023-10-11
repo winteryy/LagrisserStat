@@ -3,6 +3,8 @@
     <style name="Base.Theme.LangrisserStat" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#BF2929</item>
+        <item name="colorSecondaryContainer">#F3B6AE</item>
     </style>
 
     <style name="Theme.LangrisserStat" parent="Base.Theme.LangrisserStat" />

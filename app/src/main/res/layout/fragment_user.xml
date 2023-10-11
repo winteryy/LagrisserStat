@@ -40,7 +40,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="50000\n총 등록 게임 수"
+                android:text="00000\n총 등록 게임 수"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -49,7 +49,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="1200\n승리 수"
+                android:text="0000\n승리 수"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="80.6%\n승률"
+                android:text="00.0%\n승률"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -84,7 +84,7 @@
             app:layout_constraintStart_toStartOf="@id/winRateLayout"
             android:layout_marginStart="10dp"
             android:textSize="16sp"
-            android:text="최근 20경기 승률"
+            android:text="최근 20게임 승률"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -105,7 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:text="- 최근 20경기 선/후공 비율"
+            android:text="- 최근 20게임 선/후공 비율"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"

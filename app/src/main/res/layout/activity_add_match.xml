@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/content_bg_orange">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dateTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="50dp"
+                    android:text="게임 일자"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dateTextView"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/white_radius"
+                    android:textSize="30sp"
+                    app:layout_constraintStart_toStartOf="@id/dateTitleTextView"
+                    app:layout_constraintTop_toBottomOf="@id/dateTitleTextView" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/dateSelectButton"
+                    android:layout_width="65dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@color/weak_pink"
+                    android:drawableStart="@drawable/baseline_calendar_month_24"
+                    android:text="PICK"
+                    android:textSize="14dp"
+                    app:layout_constraintBottom_toBottomOf="@id/dateTextView"
+                    app:layout_constraintStart_toEndOf="@id/dateTextView"
+                    app:layout_constraintTop_toTopOf="@id/dateTextView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/myHeroTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="내 영웅"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@id/dateTextView"
+                    app:layout_constraintTop_toBottomOf="@id/dateTextView" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/myHeroLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/white_radius"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    app:layout_constraintTop_toBottomOf="@id/myHeroTitleTextView">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/myHero1ImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/hero_101" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/myHero2ImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/hero_101" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/myHero3ImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/hero_101" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/myHero4ImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/hero_101" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/myHero5ImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/hero_101" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/myHeroSelectButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/weak_pink"
+                    android:text="선택"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/dateTitleTextView"
+                    app:layout_constraintTop_toBottomOf="@id/myHeroLayout" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/enemyHeroTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="적 영웅"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@id/dateTextView"
+                    app:layout_constraintTop_toBottomOf="@id/myHeroSelectButton" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/enemyHeroLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/white_radius"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    app:layout_constraintTop_toBottomOf="@id/enemyHeroTitleTextView">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/enemyHero1ImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/hero_101" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/enemyHero2ImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/hero_101" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/enemyHero3ImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/hero_101" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/enemyHero4ImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/hero_101" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/enemyHero5ImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/hero_101" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/enemyHeroSelectButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/weak_pink"
+                    android:text="선택"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/dateTitleTextView"
+                    app:layout_constraintTop_toBottomOf="@id/enemyHeroLayout" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/resultTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="결과"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@id/dateTextView"
+                    app:layout_constraintTop_toBottomOf="@id/enemyHeroSelectButton" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/resultChipGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:paddingHorizontal="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/resultTitleTextView"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/winChip"
+                        style="@style/customChip"
+                        android:text="승리" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/loseChip"
+                        style="@style/customChip"
+                        android:text="패배" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/firstHandTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="선/후공"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@id/dateTextView"
+                    app:layout_constraintTop_toBottomOf="@id/resultChipGroup" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/firstHandChipGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:paddingHorizontal="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/firstHandTitleTextView"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/firstHandChip"
+                        style="@style/customChip"
+                        android:text="선공" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/secondHandChip"
+                        style="@style/customChip"
+                        android:text="후공" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mapTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="맵"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@id/dateTextView"
+                    app:layout_constraintTop_toBottomOf="@id/firstHandChipGroup" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/mapChipGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:paddingHorizontal="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mapTitleTextView"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/map1Chip"
+                        style="@style/mapChip"
+                        android:text="분쟁의 평원" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/map2Chip"
+                        style="@style/mapChip"
+                        android:text="눈덮인 벌판" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/map3Chip"
+                        style="@style/mapChip"
+                        android:text="눈물의 산길" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/map4Chip"
+                        style="@style/mapChip"
+                        android:text="하늘정원" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/map5Chip"
+                        style="@style/mapChip"
+                        android:text="사막의 눈" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/map6Chip"
+                        style="@style/mapChip"
+                        android:text="트윈 브릿지의 파도" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/map7Chip"
+                        style="@style/mapChip"
+                        android:text="빛이 비치는 동굴" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/map8Chip"
+                        style="@style/mapChip"
+                        android:text="비경의 계류" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/map9Chip"
+                        style="@style/mapChip"
+                        android:text="깎아지른 듯한 절벽" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/map10Chip"
+                        style="@style/mapChip"
+                        android:text="서풍초소" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleTextView"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@color/primary_pink"
+            android:gravity="center"
+            android:text="게임 추가"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

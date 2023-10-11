@@ -9,4 +9,5 @@
     <string name="second_hand">후공</string>
     <string name="first_hand_short">(선)</string>
     <string name="second_hand_short">(후)</string>
+    <string name="match_record">전적</string>
 </resources>

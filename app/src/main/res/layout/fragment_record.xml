@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -9,12 +11,50 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="전적창"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/matchRecordTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_pink"
             android:gravity="center"
-            android:textSize="30sp" />
+            android:paddingVertical="6dp"
+            android:text="@string/match_record"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/addMatchButton"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="6dp"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@id/matchRecordTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/matchRecordTitle"
+            app:srcCompat="@drawable/baseline_add_box_24" />
+
+        <View
+            android:id="@+id/divideLineView"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="#808080"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/matchRecordTitle" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divideLineView"
+            tools:listitem="@layout/item_match" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

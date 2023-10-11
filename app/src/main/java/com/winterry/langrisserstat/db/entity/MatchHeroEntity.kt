@@ -9,4 +9,5 @@ data class MatchHeroEntity(
     @PrimaryKey(autoGenerate = true) val id: Long,
     @ColumnInfo(name = "match_id") val matchId: Long,
     @ColumnInfo(name = "hero_id") val heroId: Int,
+    @ColumnInfo(name = "is_my_hero") val isMyHero: Boolean,
 )
