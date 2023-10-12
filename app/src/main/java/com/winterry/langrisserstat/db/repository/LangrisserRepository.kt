@@ -4,11 +4,18 @@ import android.content.Context
 import com.winterry.langrisserstat.db.HeroData
 import com.winterry.langrisserstat.db.LangrisserDb
 import com.winterry.langrisserstat.db.entity.HeroVersusEntity
+import com.winterry.langrisserstat.db.entity.MatchEntity
 
-class LangrisserRepository(db: LangrisserDb) {
+class LangrisserRepository() {
+
+    private val db = LangrisserDb.getInstance()
 
     fun getHeroList(): Map<Int, String> {
         return HeroData.getHeroes()
+    }
+
+    suspend fun addMatch(match: MatchEntity) {
+        db.matchDao().insertMatch(match)
     }
 
     //TODO fun getMatches()

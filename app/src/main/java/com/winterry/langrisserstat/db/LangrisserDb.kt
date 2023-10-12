@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.winterry.langrisserstat.LangrisserStatApplication
 import com.winterry.langrisserstat.db.dao.HeroVersusDao
 import com.winterry.langrisserstat.db.dao.MatchDao
 import com.winterry.langrisserstat.db.dao.MatchHeroDao
@@ -25,10 +26,10 @@ abstract class LangrisserDb : RoomDatabase() {
         private var INSTANCE: LangrisserDb? = null
 
         @Synchronized
-        fun getInstance(context: Context): LangrisserDb {
+        fun getInstance(): LangrisserDb {
             return INSTANCE ?: synchronized(LangrisserDb::class) {
                 val instance = Room.databaseBuilder(
-                    context.applicationContext,
+                    LangrisserStatApplication.getApplicationContext(),
                     LangrisserDb::class.java,
                     "langrisser.db"
                 )
