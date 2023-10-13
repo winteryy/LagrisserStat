@@ -2,6 +2,7 @@ package com.winterry.langrisserstat
 
 import android.app.Application
 import android.content.Context
+import androidx.core.content.ContextCompat
 
 class LangrisserStatApplication: Application() {
 

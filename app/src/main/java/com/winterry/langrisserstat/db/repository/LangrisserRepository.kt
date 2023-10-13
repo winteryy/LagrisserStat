@@ -10,7 +10,11 @@ class LangrisserRepository() {
 
     private val db = LangrisserDb.getInstance()
 
-    fun getHeroList(): Map<Int, String> {
+    fun getHeroesMap(): Map<Int, String> {
+        return HeroData.getHeroesMap()
+    }
+
+    fun getHeroes(): List<HeroData.Hero> {
         return HeroData.getHeroes()
     }
 

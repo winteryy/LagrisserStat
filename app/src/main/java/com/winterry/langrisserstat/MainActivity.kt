@@ -2,9 +2,11 @@ package com.winterry.langrisserstat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.winterry.langrisserstat.databinding.ActivityMainBinding
+import com.winterry.langrisserstat.db.HeroData
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setBottomNav()
-
     }
 
     private fun setBottomNav() {

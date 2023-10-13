@@ -2,7 +2,7 @@ package com.winterry.langrisserstat.db
 
 object HeroData {
 
-    private val HEROES = mapOf(
+    private val HEROES_MAP = mapOf(
         101 to "매튜",
         102 to "아멜다",
         103 to "그레니어",
@@ -195,10 +195,25 @@ object HeroData {
         812 to "SP 알테뮬러",
         813 to "SP 디하르트",
         814 to "SP 시그마"
-
     )
 
-    fun getHeroes(): Map<Int, String> {
+    private val HEROES: List<Hero> by lazy {
+        HEROES_MAP.map {
+            Hero(it.key, it.value)
+        }.toList()
+    }
+
+    fun getHeroesMap(): Map<Int, String> {
+        return HEROES_MAP
+    }
+
+    fun getHeroes(): List<Hero> {
         return HEROES
     }
+
+    data class Hero(
+        val id: Int,
+        val name: String,
+        var selected: Boolean = false,
+    )
 }

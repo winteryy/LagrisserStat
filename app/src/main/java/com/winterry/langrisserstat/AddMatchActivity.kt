@@ -1,6 +1,7 @@
 package com.winterry.langrisserstat
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
@@ -31,8 +32,9 @@ class AddMatchActivity: AppCompatActivity() {
             validCheck()
         }
         binding.myHeroSelectButton.setOnClickListener {
-            binding.myHeroLayout.isVisible = binding.myHeroLayout.isVisible.not()
+            startActivity(Intent(this, AddHeroActivity::class.java))
         }
+
 
     }
 

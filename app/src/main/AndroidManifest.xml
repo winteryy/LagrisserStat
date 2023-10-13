@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.winterry.langrisserstat.AddMatchActivity" />
+        <activity android:name="com.winterry.langrisserstat.AddHeroActivity" />
     </application>
 
 </manifest>
