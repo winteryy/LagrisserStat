@@ -12,6 +12,7 @@ import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.winterry.langrisserstat.adapter.HeroAdapter
 import com.winterry.langrisserstat.databinding.ActivityAddHeroBinding
@@ -26,7 +27,9 @@ class AddHeroActivity: AppCompatActivity(), HeroAdapter.OnItemClickListener {
     private lateinit var binding: ActivityAddHeroBinding
     private lateinit var heroAdapter: HeroAdapter
     private val selectedHero = mutableListOf<Int>()
-    private val allHeroList = HeroData.getHeroes().toList()
+    private val allHeroList: List<HeroData.Hero> = HeroData.getHeroes().map {
+        it.copy()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,14 +42,15 @@ class AddHeroActivity: AppCompatActivity(), HeroAdapter.OnItemClickListener {
             adapter = heroAdapter
         }
 
+        Log.d("AddHeroActivity", allHeroList.toString())
+
         heroAdapter.submitList(allHeroList)
 
         binding.searchHeroEditText.addCustomTextChangedListener(500) {
             heroAdapter.submitList(allHeroList.filter { hero ->
-                hero.name.contains(binding.searchHeroEditText.text ?: "")
+                hero.name.contains(it)
             })
         }
-
     }
 
     private fun setSelectedHeroes() {
@@ -72,13 +76,6 @@ class AddHeroActivity: AppCompatActivity(), HeroAdapter.OnItemClickListener {
         }
     }
 
-    private fun AppCompatImageView.setHeroImage(heroId: Int) {
-        load(
-            context.resources.getIdentifier("hero_$heroId", "drawable", packageName)
-        )
-        isVisible = true
-    }
-
     override fun onItemClick(item: HeroData.Hero) {
         if(item.id in selectedHero) {
             selectedHero.remove(item.id)
@@ -92,6 +89,13 @@ class AddHeroActivity: AppCompatActivity(), HeroAdapter.OnItemClickListener {
             }
         }
         Log.d("AddHeroActivity", "Current List is: $selectedHero")
+    }
+
+    private fun AppCompatImageView.setHeroImage(heroId: Int) {
+        load(
+            context.resources.getIdentifier("hero_$heroId", "drawable", packageName)
+        )
+        isVisible = true
     }
 
     private fun EditText.addCustomTextChangedListener(delay: Long, search: (String) -> Unit) {
