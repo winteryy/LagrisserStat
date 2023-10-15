@@ -79,6 +79,7 @@
                     android:orientation="horizontal"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="4dp"
+                    android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@id/myHeroTitleTextView">
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -152,6 +153,7 @@
                     android:orientation="horizontal"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="4dp"
+                    android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@id/enemyHeroTitleTextView">
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -371,10 +373,10 @@
                         android:id="@+id/memoEditText"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        android:maxLength="20"
-                        android:maxLines="1"
+                        android:hint="20자 이내로 작성해주세요."
                         android:inputType="text"
-                        android:hint="20자 이내로 작성해주세요." />
+                        android:maxLength="20"
+                        android:maxLines="1" />
 
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -389,10 +391,10 @@
             android:layout_height="wrap_content"
             android:background="@color/primary_pink"
             android:gravity="center"
+            android:paddingVertical="6dp"
             android:text="게임 추가"
             android:textColor="@color/white"
             android:textSize="30dp"
-            android:paddingVertical="6dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -402,12 +404,12 @@
             android:id="@+id/confirmButton"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:textSize="18dp"
-            android:text="확인"
             android:backgroundTint="@color/white"
-            app:layout_constraintTop_toTopOf="@id/titleTextView"
+            android:text="확인"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="@id/titleTextView"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/titleTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

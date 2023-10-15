@@ -1,24 +1,20 @@
 package com.winterry.langrisserstat
 
+import android.content.Intent
 import android.os.Bundle
-import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.view.isVisible
-import androidx.core.widget.ImageViewCompat
+
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import coil.load
+
 import com.winterry.langrisserstat.adapter.HeroAdapter
 import com.winterry.langrisserstat.databinding.ActivityAddHeroBinding
 import com.winterry.langrisserstat.db.HeroData
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -26,9 +22,22 @@ class AddHeroActivity: AppCompatActivity(), HeroAdapter.OnItemClickListener {
 
     private lateinit var binding: ActivityAddHeroBinding
     private lateinit var heroAdapter: HeroAdapter
+    private var isMyHero: Boolean = false
     private val selectedHero = mutableListOf<Int>()
-    private val allHeroList: List<HeroData.Hero> = HeroData.getHeroes().map {
-        it.copy()
+    private val allHeroList: List<HeroData.Hero> by lazy {
+        if(selectedHero.isEmpty()) {
+            HeroData.getHeroes().map {
+                it.copy()
+            }
+        } else {
+            HeroData.getHeroes().map {
+                it.copy().apply {
+                    if(selectedHero.contains(this.id)) {
+                        this.selected = true
+                    }
+                }
+            }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,16 +45,47 @@ class AddHeroActivity: AppCompatActivity(), HeroAdapter.OnItemClickListener {
         binding = ActivityAddHeroBinding.inflate(layoutInflater)
         setContentView(binding.root)
         heroAdapter = HeroAdapter(this)
+        getIntentExtras()
 
+
+        Log.d("AddHeroActivity", allHeroList.toString())
+
+        initRecyclerView()
+        setEditText()
+
+        binding.confirmButton.setOnClickListener {
+            if(selectedHero.size==5){
+                val intent = Intent(this, AddMatchActivity::class.java).apply {
+                    putExtra("selectedHeroes", selectedHero.toIntArray())
+                    putExtra("isMyHero", isMyHero)
+                }
+                setResult(RESULT_OK, intent)
+                finish()
+            }
+        }
+
+    }
+
+    private fun getIntentExtras() {
+        isMyHero = intent.getBooleanExtra("isMyHero", false)
+        if (intent.getIntArrayExtra("selectedHeroes")?.isNotEmpty() == true) {
+            for (id in intent.getIntArrayExtra("selectedHeroes")!!) {
+                selectedHero.add(id)
+            }
+            setSelectedHeroes()
+        }
+        Log.d("getIntentExtras", selectedHero.toString())
+    }
+
+    private fun initRecyclerView() {
         binding.heroRecyclerView.apply {
             layoutManager = GridLayoutManager(this@AddHeroActivity, 3)
             adapter = heroAdapter
         }
-
-        Log.d("AddHeroActivity", allHeroList.toString())
-
         heroAdapter.submitList(allHeroList)
+    }
 
+    private fun setEditText() {
         binding.searchHeroEditText.addCustomTextChangedListener(500) {
             heroAdapter.submitList(allHeroList.filter { hero ->
                 hero.name.contains(it)
@@ -91,13 +131,6 @@ class AddHeroActivity: AppCompatActivity(), HeroAdapter.OnItemClickListener {
         Log.d("AddHeroActivity", "Current List is: $selectedHero")
     }
 
-    private fun AppCompatImageView.setHeroImage(heroId: Int) {
-        load(
-            context.resources.getIdentifier("hero_$heroId", "drawable", packageName)
-        )
-        isVisible = true
-    }
-
     private fun EditText.addCustomTextChangedListener(delay: Long, search: (String) -> Unit) {
         var job: Job? = null
         this.addTextChangedListener {
@@ -110,3 +143,4 @@ class AddHeroActivity: AppCompatActivity(), HeroAdapter.OnItemClickListener {
         }
     }
 }
+

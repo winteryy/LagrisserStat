@@ -14,6 +14,7 @@ import com.winterry.langrisserstat.LangrisserStatApplication.Companion.getApplic
 import com.winterry.langrisserstat.R
 import com.winterry.langrisserstat.databinding.ItemHeroBinding
 import com.winterry.langrisserstat.db.HeroData
+import com.winterry.langrisserstat.setHeroImage
 
 class HeroAdapter(val onItemClickListener: OnItemClickListener) :
     ListAdapter<HeroData.Hero, HeroAdapter.ViewHolder>(diffUtil) {
@@ -23,15 +24,16 @@ class HeroAdapter(val onItemClickListener: OnItemClickListener) :
 
         fun bind(item: HeroData.Hero) {
             binding.heroNameTextView.text = item.name
-            binding.heroImageView.load(
-                getApplicationContext().run {
-                    resources.getIdentifier(
-                        "hero_${item.id}",
-                        "drawable",
-                        this.packageName
-                    )
-                }
-            )
+//            binding.heroImageView.load(
+//                getApplicationContext().run {
+//                    resources.getIdentifier(
+//                        "hero_${item.id}",
+//                        "drawable",
+//                        this.packageName
+//                    )
+//                }
+//            )
+            binding.heroImageView.setHeroImage(item.id)
 
             binding.root.setOnClickListener {
                 onItemClickListener.onItemClick(item)

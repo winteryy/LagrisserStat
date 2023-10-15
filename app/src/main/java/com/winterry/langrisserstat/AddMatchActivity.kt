@@ -8,6 +8,8 @@ import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.isVisible
@@ -21,6 +23,30 @@ class AddMatchActivity: AppCompatActivity() {
     private lateinit var mDetector: GestureDetectorCompat
     private val myHeroes = mutableListOf<Int>()
     private val enemyHeroes = mutableListOf<Int>()
+    private val addHeroActivityResultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        if(result.resultCode == RESULT_OK) {
+            when(result.data?.getBooleanExtra("isMyHero", false)) {
+                true -> {
+                    myHeroes.clear()
+                    for (id in result.data?.getIntArrayExtra("selectedHeroes")!!) {
+                        myHeroes.add(id)
+                    }
+                    setMyHeroes()
+                }
+                false -> {
+                    enemyHeroes.clear()
+                    for (id in result.data?.getIntArrayExtra("selectedHeroes")!!) {
+                        enemyHeroes.add(id)
+                    }
+                    setEnemyHeroes()
+                }
+                else -> return@registerForActivityResult
+            }
+        }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +58,40 @@ class AddMatchActivity: AppCompatActivity() {
             validCheck()
         }
         binding.myHeroSelectButton.setOnClickListener {
-            startActivity(Intent(this, AddHeroActivity::class.java))
+            val intent = Intent(this, AddHeroActivity::class.java)
+            intent.putExtra("isMyHero", true)
+            if(myHeroes.size!=0) {
+                intent.putExtra("selectedHeroes", myHeroes.toIntArray())
+            }
+            addHeroActivityResultLauncher.launch(intent)
+        }
+        binding.enemyHeroSelectButton.setOnClickListener {
+            val intent = Intent(this, AddHeroActivity::class.java)
+            intent.putExtra("isMyHero", false)
+            if(enemyHeroes.size!=0) {
+                intent.putExtra("selectedHeroes", enemyHeroes.toIntArray())
+            }
+            addHeroActivityResultLauncher.launch(intent)
         }
 
+    }
 
+    private fun setMyHeroes() {
+        binding.myHeroLayout.isVisible = true
+        binding.myHero1ImageView.setHeroImage(myHeroes[0])
+        binding.myHero2ImageView.setHeroImage(myHeroes[1])
+        binding.myHero3ImageView.setHeroImage(myHeroes[2])
+        binding.myHero4ImageView.setHeroImage(myHeroes[3])
+        binding.myHero5ImageView.setHeroImage(myHeroes[4])
+    }
+
+    private fun setEnemyHeroes() {
+        binding.enemyHeroLayout.isVisible = true
+        binding.enemyHero1ImageView.setHeroImage(enemyHeroes[0])
+        binding.enemyHero2ImageView.setHeroImage(enemyHeroes[1])
+        binding.enemyHero3ImageView.setHeroImage(enemyHeroes[2])
+        binding.enemyHero4ImageView.setHeroImage(enemyHeroes[3])
+        binding.enemyHero5ImageView.setHeroImage(enemyHeroes[4])
     }
 
     private fun validCheck() {
