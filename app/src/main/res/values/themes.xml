@@ -5,6 +5,20 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">#BF2929</item>
         <item name="colorSecondaryContainer">#F3B6AE</item>
+        <item name="android:fontFamily">@font/skybori</item>
+
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
+    </style>
+
+    <style name="MyDatePickerDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/dialog_theme</item>
+        <item name="android:buttonBarButtonStyle">@style/CustomDialogButtonStyle</item>
+
+    </style>
+    
+    <style name="CustomDialogButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/dialog_theme</item>
+
     </style>
 
     <style name="Theme.LangrisserStat" parent="Base.Theme.LangrisserStat" />

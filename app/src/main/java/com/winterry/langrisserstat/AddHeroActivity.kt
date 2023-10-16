@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.snackbar.Snackbar
 
 import com.winterry.langrisserstat.adapter.HeroAdapter
 import com.winterry.langrisserstat.databinding.ActivityAddHeroBinding
@@ -61,6 +63,8 @@ class AddHeroActivity: AppCompatActivity(), HeroAdapter.OnItemClickListener {
                 }
                 setResult(RESULT_OK, intent)
                 finish()
+            } else {
+                Snackbar.make(binding.root, "5명의 영웅이 선택 되어야 합니다.", Snackbar.LENGTH_SHORT).show()
             }
         }
 

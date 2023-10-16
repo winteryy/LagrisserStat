@@ -9,4 +9,5 @@
     <color name="btn_skyblue">#B3E5FC</color>
     <color name="weak_pink">#F3B6AE</color>
     <color name="transparent_blue">#7C2196F3</color>
+    <color name="dialog_theme">#3E7FFF</color>
 </resources>
