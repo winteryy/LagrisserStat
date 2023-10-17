@@ -12,20 +12,33 @@ import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.winterry.langrisserstat.databinding.ActivityAddMatchBinding
+import com.winterry.langrisserstat.db.entity.MatchEntity
+import com.winterry.langrisserstat.db.repository.LangrisserRepository
+import com.winterry.langrisserstat.viewmodel.AddMatchViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AddMatchActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddMatchBinding
     private lateinit var mDetector: GestureDetectorCompat
+
     private val myHeroes = mutableListOf<Int>()
     private val enemyHeroes = mutableListOf<Int>()
+
+    private val viewModel: AddMatchViewModel by viewModels()
+
     private val addHeroActivityResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result: ActivityResult ->
@@ -72,14 +85,44 @@ class AddMatchActivity : AppCompatActivity() {
 
     private fun setConfirmButton() {
         binding.confirmButton.setOnClickListener {
-            if(validCheck()) {
+            if (validCheck()) {
                 Snackbar.make(binding.root, "통과", Snackbar.LENGTH_SHORT).show()
-            } else {
-                Snackbar.make(binding.root, "불통과", Snackbar.LENGTH_SHORT).show()
-            }
-    //            val temp = binding.dateTextView.text.toString().toLong()
-    //            Log.d("asdsda", "${temp-1000}")
+                val date = binding.dateTextView.text.toString().toInt()
 
+                val match = MatchEntity(
+                    id = 0,
+                    date = date,
+                    isFirstHand = binding.firstHandChipGroup.checkedChipId == R.id.firstHandChip,
+                    isWin = binding.resultChipGroup.checkedChipId == R.id.winChip,
+                    map = mapCheck(),
+                    memo = binding.memoEditText.text.toString()
+                )
+
+                viewModel.addMatch(match, myHeroes, enemyHeroes)
+
+                finish()
+
+            } else {
+                Snackbar.make(binding.root, "선택 항목을 다시 확인해 주세요.", Snackbar.LENGTH_SHORT).show()
+            }
+
+
+        }
+    }
+
+    private fun mapCheck(): Int {
+        return when(binding.mapChipGroup.checkedChipId) {
+            R.id.map1Chip -> 11
+            R.id.map2Chip -> 12
+            R.id.map3Chip -> 13
+            R.id.map4Chip -> 14
+            R.id.map5Chip -> 15
+            R.id.map6Chip -> 16
+            R.id.map7Chip -> 17
+            R.id.map8Chip -> 18
+            R.id.map9Chip -> 19
+            R.id.map10Chip -> 20
+            else -> -1
         }
     }
 

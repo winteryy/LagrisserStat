@@ -24,15 +24,7 @@ class HeroAdapter(val onItemClickListener: OnItemClickListener) :
 
         fun bind(item: HeroData.Hero) {
             binding.heroNameTextView.text = item.name
-//            binding.heroImageView.load(
-//                getApplicationContext().run {
-//                    resources.getIdentifier(
-//                        "hero_${item.id}",
-//                        "drawable",
-//                        this.packageName
-//                    )
-//                }
-//            )
+
             binding.heroImageView.setHeroImage(item.id)
 
             binding.root.setOnClickListener {

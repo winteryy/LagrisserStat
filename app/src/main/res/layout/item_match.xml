@@ -1,191 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="160dp"
-    android:padding="10dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <View
-        android:id="@+id/backGroundView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/win_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/resultTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/win"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="@id/backGroundView"
-        app:layout_constraintTop_toTopOf="@id/backGroundView" />
+    </data>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/dateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="14dp"
-        android:text="20231011"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@id/backGroundView"
-        app:layout_constraintStart_toStartOf="@id/backGroundView"
-        app:layout_constraintTop_toTopOf="@id/backGroundView" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:padding="10dp">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/myPickTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="14dp"
-        android:text="My Pick"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@id/dateTextView"
-        app:layout_constraintStart_toStartOf="@id/backGroundView"
-        app:layout_constraintTop_toTopOf="@id/backGroundView" />
+        <View
+            android:id="@+id/backGroundView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/win_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/turnHandTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14dp"
-        android:layout_marginEnd="7dp"
-        android:text="@string/second_hand_short"
-        app:layout_constraintBottom_toBottomOf="@id/myPickTextView"
-        app:layout_constraintEnd_toStartOf="@id/myPickTextView"
-        app:layout_constraintTop_toTopOf="@id/myPickTextView" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/win"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="@id/backGroundView"
+            app:layout_constraintTop_toTopOf="@id/backGroundView" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/mapNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:textSize="14dp"
-        android:text="분쟁의 평원"
-        app:layout_constraintEnd_toEndOf="@id/backGroundView"
-        app:layout_constraintStart_toStartOf="@id/backGroundView"
-        app:layout_constraintTop_toBottomOf="@id/dateTextView" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="14dp"
+            android:text="20231011"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/backGroundView"
+            app:layout_constraintStart_toStartOf="@id/backGroundView"
+            app:layout_constraintTop_toTopOf="@id/backGroundView" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/myHero1ImageView"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/deleteMatchButton"
-        app:layout_constraintStart_toStartOf="@id/backGroundView"
-        app:srcCompat="@drawable/hero_101" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/myPickTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="14dp"
+            android:text="My Pick"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/dateTextView"
+            app:layout_constraintStart_toStartOf="@id/backGroundView"
+            app:layout_constraintTop_toTopOf="@id/backGroundView" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/myHero2ImageView"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/deleteMatchButton"
-        app:layout_constraintStart_toEndOf="@id/myHero1ImageView"
-        app:srcCompat="@drawable/hero_101" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/turnHandTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:layout_marginEnd="7dp"
+            android:text="@string/second_hand_short"
+            app:layout_constraintBottom_toBottomOf="@id/myPickTextView"
+            app:layout_constraintEnd_toStartOf="@id/myPickTextView"
+            app:layout_constraintTop_toTopOf="@id/myPickTextView" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/myHero3ImageView"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/deleteMatchButton"
-        app:layout_constraintStart_toEndOf="@id/myHero2ImageView"
-        app:srcCompat="@drawable/hero_101" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mapNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="14dp"
+            android:text="분쟁의 평원"
+            app:layout_constraintEnd_toEndOf="@id/backGroundView"
+            app:layout_constraintStart_toStartOf="@id/backGroundView"
+            app:layout_constraintTop_toBottomOf="@id/dateTextView" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/myHero4ImageView"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/deleteMatchButton"
-        app:layout_constraintStart_toEndOf="@id/myHero3ImageView"
-        app:srcCompat="@drawable/hero_101" />
+        <LinearLayout
+            android:id="@+id/myHeroLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/deleteMatchButton"
+            app:layout_constraintStart_toStartOf="@id/backGroundView"
+            app:layout_constraintEnd_toStartOf="@id/enemyHeroLayout"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/myHero5ImageView"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/deleteMatchButton"
-        app:layout_constraintStart_toEndOf="@id/myHero4ImageView"
-        app:srcCompat="@drawable/hero_101" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/myHero1ImageView"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/hero_101" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/myHero2ImageView"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/hero_101" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/myHero3ImageView"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/hero_101" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/myHero4ImageView"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/hero_101" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/myHero5ImageView"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/hero_101" />
 
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/enemyHero5ImageView"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/deleteMatchButton"
-        app:layout_constraintEnd_toEndOf="@id/backGroundView"
-        app:srcCompat="@drawable/hero_101" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/enemyHero4ImageView"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/deleteMatchButton"
-        app:layout_constraintEnd_toStartOf="@id/enemyHero5ImageView"
-        app:srcCompat="@drawable/hero_101" />
+        </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/enemyHero3ImageView"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/deleteMatchButton"
-        app:layout_constraintEnd_toStartOf="@id/enemyHero4ImageView"
-        app:srcCompat="@drawable/hero_101" />
+        <LinearLayout
+            android:id="@+id/enemyHeroLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/myHeroLayout"
+            app:layout_constraintBottom_toBottomOf="@id/myHeroLayout"
+            app:layout_constraintEnd_toEndOf="@id/backGroundView"
+            app:layout_constraintStart_toEndOf="@id/myHeroLayout"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/enemyHero2ImageView"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/deleteMatchButton"
-        app:layout_constraintEnd_toStartOf="@id/enemyHero3ImageView"
-        app:srcCompat="@drawable/hero_101" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/enemyHero5ImageView"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/hero_101" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/enemyHero1ImageView"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/deleteMatchButton"
-        app:layout_constraintEnd_toStartOf="@id/enemyHero2ImageView"
-        app:srcCompat="@drawable/hero_101" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/enemyHero4ImageView"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/hero_101" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/deleteMatchButton"
-        android:layout_width="75dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="4dp"
-        android:backgroundTint="#FF3333"
-        android:text="게임 삭제"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/memoTextView"
-        app:layout_constraintStart_toStartOf="@id/backGroundView"
-        app:layout_constraintTop_toTopOf="@id/memoTextView" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/enemyHero3ImageView"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/hero_101" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/memoTextView"
-        android:layout_width="300dp"
-        android:layout_height="32dp"
-        android:layout_margin="5dp"
-        android:background="@drawable/white_radius"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="5dp"
-        android:text="짧은 메모를 작성하는 공간(20자 정도)"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="@id/backGroundView"
-        app:layout_constraintEnd_toEndOf="@id/backGroundView" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/enemyHero2ImageView"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/hero_101" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/enemyHero1ImageView"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/hero_101" />
+        </LinearLayout>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/deleteMatchButton"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:backgroundTint="#FF3333"
+            android:text="게임 삭제"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/memoTextView"
+            app:layout_constraintStart_toStartOf="@id/backGroundView"
+            app:layout_constraintTop_toTopOf="@id/memoTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/memoTextView"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/white_radius"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="5dp"
+            android:text="짧은 메모를 작성하는 공간(20자 정도)"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@id/backGroundView"
+            app:layout_constraintEnd_toEndOf="@id/backGroundView"
+            app:layout_constraintStart_toEndOf="@id/deleteMatchButton"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

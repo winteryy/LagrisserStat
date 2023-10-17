@@ -3,10 +3,13 @@ package com.winterry.langrisserstat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.winterry.langrisserstat.databinding.ActivityMainBinding
 import com.winterry.langrisserstat.db.HeroData
+import com.winterry.langrisserstat.db.repository.LangrisserRepository
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
