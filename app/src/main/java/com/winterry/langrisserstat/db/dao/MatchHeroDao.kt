@@ -14,5 +14,8 @@ interface MatchHeroDao {
     @Query("SELECT * FROM MATCH_HERO WHERE match_id = :matchId")
     suspend fun loadMatchHero(matchId: Long): List<MatchHeroEntity>
 
+    @Query("DELETE FROM MATCH_HERO WHERE match_id = :matchId")
+    suspend fun deleteMatchHero(matchId: Long)
+
 
 }

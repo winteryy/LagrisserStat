@@ -17,4 +17,8 @@ interface MatchDao {
 
     @Query("SELECT * FROM `MATCH` ORDER BY date DESC, id DESC LIMIT :offset, :page")
     suspend fun loadMatch(offset: Int, page: Int): List<MatchEntity>
+
+    @Query("DELETE FROM 'MATCH' WHERE id = :matchId")
+    suspend fun deleteMatchById(matchId: Long)
+
 }

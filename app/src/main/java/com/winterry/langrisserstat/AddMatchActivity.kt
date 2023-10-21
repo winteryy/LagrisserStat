@@ -97,9 +97,9 @@ class AddMatchActivity : AppCompatActivity() {
                     map = mapCheck(),
                     memo = binding.memoEditText.text.toString()
                 )
-
                 viewModel.addMatch(match, myHeroes, enemyHeroes)
 
+                setResult(RESULT_OK)
                 finish()
 
             } else {

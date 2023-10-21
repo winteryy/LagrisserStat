@@ -10,6 +10,7 @@ import com.winterry.langrisserstat.db.repository.LangrisserRepository
 import com.winterry.langrisserstat.db.repository.MatchData
 import com.winterry.langrisserstat.db.repository.MatchPagingSource
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 class MatchViewModel: ViewModel() {
 
@@ -23,4 +24,11 @@ class MatchViewModel: ViewModel() {
     )
         .flow
         .cachedIn(viewModelScope)
+
+    fun deleteMatch(matchId: Long) {
+        viewModelScope.launch {
+            langRepo.deleteMatchAndMatchHeroes(matchId)
+        }
+
+    }
 }

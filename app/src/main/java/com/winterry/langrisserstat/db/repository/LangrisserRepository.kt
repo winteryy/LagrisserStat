@@ -35,6 +35,11 @@ class LangrisserRepository {
         return db.matchDao().insertMatch(match)
     }
 
+    suspend fun deleteMatchAndMatchHeroes(matchId: Long) {
+        db.matchDao().deleteMatchById(matchId)
+        db.matchHeroDao().deleteMatchHero(matchId)
+    }
+
     suspend fun addMatchHero(matchHero: MatchHeroEntity) {
         return db.matchHeroDao().insertMatchHero(matchHero)
     }

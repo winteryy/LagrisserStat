@@ -17,7 +17,7 @@ import com.winterry.langrisserstat.db.HeroData
 import com.winterry.langrisserstat.setHeroImage
 
 class HeroAdapter(val onItemClickListener: OnItemClickListener) :
-    ListAdapter<HeroData.Hero, HeroAdapter.ViewHolder>(diffUtil) {
+    ListAdapter<HeroData.Hero, HeroAdapter.ViewHolder>(diffCallback) {
 
     inner class ViewHolder(private val binding: ItemHeroBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -68,7 +68,7 @@ class HeroAdapter(val onItemClickListener: OnItemClickListener) :
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<HeroData.Hero>() {
+        val diffCallback = object : DiffUtil.ItemCallback<HeroData.Hero>() {
             override fun areItemsTheSame(oldItem: HeroData.Hero, newItem: HeroData.Hero): Boolean {
                 return oldItem.id == newItem.id
             }

@@ -12,7 +12,8 @@ import com.winterry.langrisserstat.db.MapData
 import com.winterry.langrisserstat.db.repository.MatchData
 import com.winterry.langrisserstat.setHeroImage
 
-class MatchBindingAdapter: PagingDataAdapter<MatchData, MatchBindingAdapter.ViewHolder>(diffCallback) {
+class MatchPagingAdapter(private val matchClickListener: MatchClickListener)
+    : PagingDataAdapter<MatchData, MatchPagingAdapter.ViewHolder>(diffCallback) {
 
     inner class ViewHolder(private val binding: ItemMatchBinding): RecyclerView.ViewHolder(binding.root) {
 
@@ -33,6 +34,10 @@ class MatchBindingAdapter: PagingDataAdapter<MatchData, MatchBindingAdapter.View
             binding.enemyHero3ImageView.setHeroImage(item.enemyHeroes[2])
             binding.enemyHero4ImageView.setHeroImage(item.enemyHeroes[3])
             binding.enemyHero5ImageView.setHeroImage(item.enemyHeroes[4])
+
+            binding.deleteMatchButton.setOnClickListener {
+                matchClickListener.onClick(item.id)
+            }
         }
 
         fun setBgWin() {
@@ -61,6 +66,10 @@ class MatchBindingAdapter: PagingDataAdapter<MatchData, MatchBindingAdapter.View
             parent,
             false
         ))
+    }
+
+    interface MatchClickListener {
+        fun onClick(matchId: Long)
     }
 
     companion object {
